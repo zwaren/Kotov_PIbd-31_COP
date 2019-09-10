@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace ControlLibrary
 {
-    public partial class UserControl1: UserControl
-    {
-        public UserControl1()
-        {
-            InitializeComponent();
-        }
-    }
+	public partial class ControlTextBox : UserControl
+	{
+		public ControlTextBox()
+		{
+			InitializeComponent();
+		}
+	}
 }
