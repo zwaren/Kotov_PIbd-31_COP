@@ -1,6 +1,6 @@
 ﻿namespace ControlLibrary
 {
-	partial class ControlTextBox
+	partial class ControlCheckedListBox
 	{
 		/// <summary> 
 		/// Обязательная переменная конструктора.
@@ -28,42 +28,31 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.textBox = new System.Windows.Forms.TextBox();
-			this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
+			this.checkedListBox = new System.Windows.Forms.CheckedListBox();
 			this.SuspendLayout();
 			// 
-			// textBox
+			// checkedListBox
 			// 
-			this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox.Location = new System.Drawing.Point(0, 0);
-			this.textBox.Multiline = true;
-			this.textBox.Name = "textBox";
-			this.textBox.Size = new System.Drawing.Size(150, 150);
-			this.textBox.TabIndex = 0;
+			this.checkedListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.checkedListBox.FormattingEnabled = true;
+			this.checkedListBox.Location = new System.Drawing.Point(0, 0);
+			this.checkedListBox.Name = "checkedListBox";
+			this.checkedListBox.Size = new System.Drawing.Size(150, 150);
+			this.checkedListBox.TabIndex = 0;
+			
 			// 
-			// maskedTextBox
-			// 
-			this.maskedTextBox.Location = new System.Drawing.Point(28, 50);
-			this.maskedTextBox.Name = "maskedTextBox";
-			this.maskedTextBox.Size = new System.Drawing.Size(99, 20);
-			this.maskedTextBox.TabIndex = 1;
-			// 
-			// ControlTextBox
+			// ControlCheckedListBox
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.AutoSize = true;
-			this.Controls.Add(this.maskedTextBox);
-			this.Controls.Add(this.textBox);
-			this.Name = "ControlTextBox";
+			this.Controls.Add(this.checkedListBox);
+			this.Name = "ControlCheckedListBox";
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.TextBox textBox;
-		private System.Windows.Forms.MaskedTextBox maskedTextBox;
+		private System.Windows.Forms.CheckedListBox checkedListBox;
 	}
 }

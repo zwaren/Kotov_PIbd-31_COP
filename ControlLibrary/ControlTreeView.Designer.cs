@@ -1,6 +1,6 @@
 ﻿namespace ControlLibrary
 {
-	partial class ControlTextBox
+	partial class ControlTreeView
 	{
 		/// <summary> 
 		/// Обязательная переменная конструктора.
@@ -28,42 +28,29 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.textBox = new System.Windows.Forms.TextBox();
-			this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
+			this.treeView1 = new System.Windows.Forms.TreeView();
 			this.SuspendLayout();
 			// 
-			// textBox
+			// treeView1
 			// 
-			this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox.Location = new System.Drawing.Point(0, 0);
-			this.textBox.Multiline = true;
-			this.textBox.Name = "textBox";
-			this.textBox.Size = new System.Drawing.Size(150, 150);
-			this.textBox.TabIndex = 0;
+			this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.treeView1.Location = new System.Drawing.Point(0, 0);
+			this.treeView1.Name = "treeView1";
+			this.treeView1.Size = new System.Drawing.Size(150, 150);
+			this.treeView1.TabIndex = 0;
 			// 
-			// maskedTextBox
-			// 
-			this.maskedTextBox.Location = new System.Drawing.Point(28, 50);
-			this.maskedTextBox.Name = "maskedTextBox";
-			this.maskedTextBox.Size = new System.Drawing.Size(99, 20);
-			this.maskedTextBox.TabIndex = 1;
-			// 
-			// ControlTextBox
+			// ControlTreeView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.AutoSize = true;
-			this.Controls.Add(this.maskedTextBox);
-			this.Controls.Add(this.textBox);
-			this.Name = "ControlTextBox";
+			this.Controls.Add(this.treeView1);
+			this.Name = "ControlTreeView";
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.TextBox textBox;
-		private System.Windows.Forms.MaskedTextBox maskedTextBox;
+		private System.Windows.Forms.TreeView treeView1;
 	}
 }

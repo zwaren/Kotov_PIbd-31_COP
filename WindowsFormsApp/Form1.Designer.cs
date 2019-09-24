@@ -30,6 +30,7 @@
 		{
 			this.button1 = new System.Windows.Forms.Button();
 			this.controlComboBox = new ControlLibrary.ControlComboBox();
+			this.controlCheckedListBox1 = new ControlLibrary.ControlCheckedListBox();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -52,11 +53,20 @@
 			this.controlComboBox.TabIndex = 0;
 			this.controlComboBox.ComboBoxSelectedElementChange += new System.EventHandler(this.controlComboBox_ComboBoxSelectedElementChange);
 			// 
+			// controlCheckedListBox1
+			// 
+			this.controlCheckedListBox1.Location = new System.Drawing.Point(340, 82);
+			this.controlCheckedListBox1.Name = "controlCheckedListBox1";
+			this.controlCheckedListBox1.SelectedIndex = 0;
+			this.controlCheckedListBox1.Size = new System.Drawing.Size(150, 150);
+			this.controlCheckedListBox1.TabIndex = 2;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(556, 311);
+			this.Controls.Add(this.controlCheckedListBox1);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.controlComboBox);
 			this.Name = "Form1";
@@ -70,6 +80,7 @@
 
 		private ControlLibrary.ControlComboBox controlComboBox;
 		private System.Windows.Forms.Button button1;
+		private ControlLibrary.ControlCheckedListBox controlCheckedListBox1;
 	}
 }
 

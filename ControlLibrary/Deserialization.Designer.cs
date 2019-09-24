@@ -1,8 +1,8 @@
 ﻿namespace ControlLibrary
 {
-	partial class ControlDataGridView
+	partial class Deserialization
 	{
-		/// <summary> 
+		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
@@ -22,38 +22,26 @@
 
 		#region Код, автоматически созданный конструктором компонентов
 
-		/// <summary> 
+		/// <summary>
 		/// Требуемый метод для поддержки конструктора — не изменяйте 
 		/// содержимое этого метода с помощью редактора кода.
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dataGridView = new System.Windows.Forms.DataGridView();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-			this.SuspendLayout();
+			this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
 			// 
-			// dataGridView
+			// domainUpDown1
 			// 
-			this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView.Location = new System.Drawing.Point(0, 0);
-			this.dataGridView.Name = "dataGridView";
-			this.dataGridView.Size = new System.Drawing.Size(392, 251);
-			this.dataGridView.TabIndex = 0;
-			// 
-			// ControlDataGridView
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.dataGridView);
-			this.Name = "ControlDataGridView";
-			this.Size = new System.Drawing.Size(392, 251);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-			this.ResumeLayout(false);
+			this.domainUpDown1.Location = new System.Drawing.Point(0, 0);
+			this.domainUpDown1.Name = "domainUpDown1";
+			this.domainUpDown1.Size = new System.Drawing.Size(120, 20);
+			this.domainUpDown1.TabIndex = 0;
+			this.domainUpDown1.Text = "domainUpDown1";
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.DataGridView dataGridView;
+		private System.Windows.Forms.DomainUpDown domainUpDown1;
 	}
 }

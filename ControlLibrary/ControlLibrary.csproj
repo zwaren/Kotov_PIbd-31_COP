@@ -31,6 +31,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,17 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlCheckedListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlCheckedListBox.Designer.cs">
+      <DependentUpon>ControlCheckedListBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlComboBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ControlComboBox.Designer.cs">
       <DependentUpon>ControlComboBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ControlDataGridView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ControlDataGridView.Designer.cs">
-      <DependentUpon>ControlDataGridView.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlTextBox.cs">
       <SubType>UserControl</SubType>
@@ -59,18 +60,36 @@
     <Compile Include="ControlTextBox.Designer.cs">
       <DependentUpon>ControlTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlTreeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlTreeView.Designer.cs">
+      <DependentUpon>ControlTreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deserialization.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Deserialization.Designer.cs">
+      <DependentUpon>Deserialization.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ControlCheckedListBox.resx">
+      <DependentUpon>ControlCheckedListBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlComboBox.resx">
       <DependentUpon>ControlComboBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlDataGridView.resx">
-      <DependentUpon>ControlDataGridView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ControlTextBox.resx">
       <DependentUpon>ControlTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlTreeView.resx">
+      <DependentUpon>ControlTreeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deserialization.resx">
+      <DependentUpon>Deserialization.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

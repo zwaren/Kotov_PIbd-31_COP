@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ControlLibrary
 {
-	public partial class ControlDataGridView : UserControl
+	public partial class ControlTreeView : UserControl
 	{
-		public ControlDataGridView()
+		public ControlTreeView()
 		{
 			InitializeComponent();
 		}
