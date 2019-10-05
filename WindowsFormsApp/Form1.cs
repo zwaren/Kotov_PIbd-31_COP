@@ -15,7 +15,15 @@ namespace WindowsFormsApp
 		public Form1()
 		{
 			InitializeComponent();
+
 			controlComboBox.LoadEnumeration(typeof(TestEnum));
+
+            List<Product> list = new List<Product>();
+            list.Add(new Product("1", "1"));
+            list.Add(new Product("2", "1"));
+            list.Add(new Product("3", "2"));
+
+            controlTreeView1.SetList(list, (x) => x.Category);
 		}
 
 		private void controlComboBox_ComboBoxSelectedElementChange(object sender, EventArgs e)
@@ -27,5 +35,6 @@ namespace WindowsFormsApp
 		{
 			controlComboBox.SelectedIndex = 0;
 		}
-	}
+
+    }
 }

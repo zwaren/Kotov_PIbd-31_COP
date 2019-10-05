@@ -42,17 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControlCheckedListBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ControlCheckedListBox.Designer.cs">
-      <DependentUpon>ControlCheckedListBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="ControlComboBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ControlComboBox.Designer.cs">
       <DependentUpon>ControlComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlListBox.Designer.cs">
+      <DependentUpon>ControlListBox.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlTextBox.cs">
       <SubType>UserControl</SubType>
@@ -76,11 +76,11 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ControlCheckedListBox.resx">
-      <DependentUpon>ControlCheckedListBox.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ControlComboBox.resx">
       <DependentUpon>ControlComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlListBox.resx">
+      <DependentUpon>ControlListBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlTextBox.resx">
       <DependentUpon>ControlTextBox.cs</DependentUpon>

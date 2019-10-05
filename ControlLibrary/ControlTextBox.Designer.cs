@@ -28,42 +28,33 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.textBox = new System.Windows.Forms.TextBox();
-			this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
-			this.SuspendLayout();
-			// 
-			// textBox
-			// 
-			this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox.Location = new System.Drawing.Point(0, 0);
-			this.textBox.Multiline = true;
-			this.textBox.Name = "textBox";
-			this.textBox.Size = new System.Drawing.Size(150, 150);
-			this.textBox.TabIndex = 0;
-			// 
-			// maskedTextBox
-			// 
-			this.maskedTextBox.Location = new System.Drawing.Point(28, 50);
-			this.maskedTextBox.Name = "maskedTextBox";
-			this.maskedTextBox.Size = new System.Drawing.Size(99, 20);
-			this.maskedTextBox.TabIndex = 1;
-			// 
-			// ControlTextBox
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.AutoSize = true;
-			this.Controls.Add(this.maskedTextBox);
-			this.Controls.Add(this.textBox);
-			this.Name = "ControlTextBox";
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.textBox = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // textBox
+            // 
+            this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox.Location = new System.Drawing.Point(0, 0);
+            this.textBox.Name = "textBox";
+            this.textBox.Size = new System.Drawing.Size(150, 20);
+            this.textBox.TabIndex = 0;
+            this.textBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            // 
+            // ControlTextBox
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.Controls.Add(this.textBox);
+            this.Name = "ControlTextBox";
+            this.Size = new System.Drawing.Size(150, 20);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
-		#endregion
+        #endregion
 
-		private System.Windows.Forms.TextBox textBox;
-		private System.Windows.Forms.MaskedTextBox maskedTextBox;
-	}
+        private System.Windows.Forms.TextBox textBox;
+    }
 }
