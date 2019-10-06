@@ -29,8 +29,8 @@ namespace ControlLibrary
 			DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(List<T>));
 			using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
 			{
-				var desered = (List<T>)ser.ReadObject(fs);
-				return desered;
+				var deserialized = (List<T>) ser.ReadObject(fs);
+				return deserialized;
 			}
 		}
 	}

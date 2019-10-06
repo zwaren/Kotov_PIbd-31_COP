@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ControlLibrary;
 
 namespace WindowsFormsApp
 {
@@ -24,6 +25,7 @@ namespace WindowsFormsApp
             list.Add(new Product("3", "2"));
 
             controlTreeView1.SetList(list, (x) => x.Category);
+
 		}
 
 		private void controlComboBox_ComboBoxSelectedElementChange(object sender, EventArgs e)
