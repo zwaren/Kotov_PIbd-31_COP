@@ -41,7 +41,11 @@ namespace ControlLibrary
                 foreach (Match match in new Regex(@"\${[a-zA-Z_0-9]+?}").Matches(format))
                 {
                     string fpName = match.Value.Substring(2, match.Value.Length - 3);
-                    string value = fields.FirstOrDefault((x) => x.Name == fpName).GetValue(obj).ToString();
+
+                    object field = fields.FirstOrDefault((x) => x.Name == fpName).GetValue(obj);
+                    object property = properties.FirstOrDefault((x) => x.Name == fpName).GetValue(obj);
+                    string value = (field != null) ? field.ToString() : property.ToString();
+
                     row = row.Replace(match.Value, value);
                 }
                 s += row;
