@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WindowsFormsApp
 {
+	[DataContract]
     public class Product
     {
-        public string Category { get; set; }
-        public string Name { get; set; }
+		[DataMember]
+		public string Category { get; set; }
 
-        public Product(string name, string category)
-        {
-            Name = name;
-            Category = category;
-        }
+		[DataMember]
+		public string Name { get; set; }
+
+		[DataMember]
+		public int Count { get; set; }
+		
 
         public override string ToString()
         {

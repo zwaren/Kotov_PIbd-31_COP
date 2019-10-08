@@ -15,7 +15,7 @@ namespace ControlLibrary
 	{
         public string Text
         {
-            get => textBox.Text;
+            get => (textBox.Text != "") ? textBox.Text : null;
             set => textBox.Text = value;
         }
 

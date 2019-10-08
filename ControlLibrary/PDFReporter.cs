@@ -25,32 +25,68 @@ namespace ControlLibrary
             InitializeComponent();
         }
 
+		public enum Alignment { Vertical, Horizontal }
+
         /// <param name="format">Строка в Markdown разметке. Поля и свойства указываются с помощью ${...}.</param>
         /// <param name="list">Список продуктов.</param>
         /// <param name="path">Строка вида @"D:\path\to\report.pdf".</param>
-        public static void CreatePDFReport<T>(string format, List<T> list, string path)
+        public static void CreatePDFReport<T>(Alignment alignment, string format, List<T> list, string path)
         {
             Type t = typeof(T);
-            var fields = t.GetFields();
-            var properties = t.GetProperties();
+			var columns = format.Split(' ');
+			Dictionary<string, PropertyInfo> properties = new Dictionary<string, PropertyInfo>();
+			foreach (var c in columns)
+			{
+				properties.Add(c, t.GetProperties().FirstOrDefault((x) => x.Name == c));
+			}
 
-            string s = $"# List of {t.Name}s\n";
-            foreach (T obj in list)
-            {
-                string row = format;
-                foreach (Match match in new Regex(@"\${[a-zA-Z_0-9]+?}").Matches(format))
-                {
-                    string fpName = match.Value.Substring(2, match.Value.Length - 3);
+			var table = new List<List<string>>();
+			switch (alignment)
+			{
+				case Alignment.Vertical:
+					table.Add(new List<string>(columns));
+					foreach (var obj in list)
+					{
+						var row = new List<string>();
+						foreach (var c in columns)
+						{
+							row.Add(properties[c].GetValue(obj).ToString());
+						}
+						table.Add(row);
+					}
+					break;
 
-                    object field = fields.FirstOrDefault((x) => x.Name == fpName).GetValue(obj);
-                    object property = properties.FirstOrDefault((x) => x.Name == fpName).GetValue(obj);
-                    string value = (field != null) ? field.ToString() : property.ToString();
+				case Alignment.Horizontal:
+					foreach (var c in columns)
+					{
+						var row = new List<string>();
+						row.Add(c);
+						foreach (var obj in list)
+						{
+							row.Add(properties[c].GetValue(obj).ToString());
+						}
+						table.Add(row);
+					}
+					break;
+			}
 
-                    row = row.Replace(match.Value, value);
-                }
-                s += row;
-            }
-            MarkdownPdf.Transform(s, path);
+			string s = $"### {t.Name}s\n";
+
+			for (int x = 0; x < table.Count; x++)
+			{
+				s += String.Join(" | ", table[x]) + "\n";
+				if (x == 0)
+				{
+					var row = new List<string>();
+					for (int y = 0; y < table[x].Count; y++)
+					{
+						row.Add("---");
+					}
+					s += String.Join(" | ", row) + "\n";
+				}
+			}
+
+			MarkdownPdf.Transform(s, path);
         }
     }
 }

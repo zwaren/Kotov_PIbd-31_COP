@@ -26,6 +26,9 @@ namespace ControlLibrary
 
 		public List<T> Deserialize<T>(string path)
 		{
+			if (typeof(T).CustomAttributes.FirstOrDefault(x => x.AttributeType.Name == "DataContractAttribute") == null)
+				return null;
+			
 			DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(List<T>));
 			using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
 			{

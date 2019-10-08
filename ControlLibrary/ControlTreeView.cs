@@ -22,7 +22,8 @@ namespace ControlLibrary
 
         public void SetList<T>(List<T> productList, Func<T, object> getCategory)
         {
-            foreach (T product in productList)
+
+			foreach (T product in productList)
             {
                 string cat = getCategory(product).ToString();
 
