@@ -28,27 +28,27 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.comboBox = new System.Windows.Forms.ComboBox();
-			this.SuspendLayout();
-			// 
-			// comboBox
-			// 
-			this.comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.comboBox.FormattingEnabled = true;
-			this.comboBox.Location = new System.Drawing.Point(0, 0);
-			this.comboBox.Name = "comboBox";
-			this.comboBox.Size = new System.Drawing.Size(169, 21);
-			this.comboBox.TabIndex = 0;
-			// 
-			// ControlComboBox
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.AutoSize = true;
-			this.Controls.Add(this.comboBox);
-			this.Name = "ControlComboBox";
-			this.Size = new System.Drawing.Size(169, 110);
-			this.ResumeLayout(false);
+            this.comboBox = new System.Windows.Forms.ComboBox();
+            this.SuspendLayout();
+            // 
+            // comboBox
+            // 
+            this.comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox.FormattingEnabled = true;
+            this.comboBox.Location = new System.Drawing.Point(0, 0);
+            this.comboBox.Name = "comboBox";
+            this.comboBox.Size = new System.Drawing.Size(169, 21);
+            this.comboBox.TabIndex = 0;
+            // 
+            // ControlComboBox
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.Controls.Add(this.comboBox);
+            this.Name = "ControlComboBox";
+            this.Size = new System.Drawing.Size(169, 110);
+            this.ResumeLayout(false);
 
 		}
 

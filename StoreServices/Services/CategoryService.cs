@@ -26,7 +26,7 @@ namespace StoreServices.Services
             {
                 throw new Exception("Уже есть");
             }
-            context.Products.Add(new Product
+            context.Categories.Add(new Category
             {
                 Name = model.Name,
             });
@@ -63,7 +63,7 @@ namespace StoreServices.Services
 
         public List<CategoryVM> GetList()
         {
-            List<CategoryVM> result = context.Products.Select(rec => new CategoryVM
+            List<CategoryVM> result = context.Categories.Select(rec => new CategoryVM
             {
                 Id = rec.Id,
                 Name = rec.Name,

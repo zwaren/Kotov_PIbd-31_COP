@@ -24,8 +24,8 @@ namespace StoreViews
         public FormProductAdd(IProductService service, ICategoryService _service)
         {
             InitializeComponent();
-            List<CategoryVM>  catVM = _service.GetList();
-            selectComponentControl.LoadEnumeration(catVM.GetType());
+            List<CategoryVM> catVM = _service.GetList();
+            selectComponentControl.LoadEnumeration(catVM, (x) => x.Name);
             this.service = service;
         }
 

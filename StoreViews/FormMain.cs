@@ -48,5 +48,24 @@ namespace StoreViews
             var form = Container.Resolve<FormProductList>();
             form.ShowDialog();
         }
+
+        private void BBackUp_Click(object sender, EventArgs e)
+        {
+            createBackUpComponent1.BackUp(pService.GetList(), @"D:\test\products.json");
+        }
+
+        private void BWordReport_Click(object sender, EventArgs e)
+        {
+            wordReport1.SetData(pService.GetList().Select(x => 
+            {
+                var list1 = new List<String>();
+                list1.Add(x.Id.ToString());
+                list1.Add(x.Name);
+                list1.Add(cService.Get(x.CategoryId).Name);
+                return list1;
+            }).ToList());
+            string[] cols = { "Id", "Name", "Category" };
+            wordReport1.CreateTable(cols, null, @"D:\test\products.docx");
+        }
     }
 }

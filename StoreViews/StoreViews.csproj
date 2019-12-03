@@ -33,14 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="ClassLibraryControlReport">
+      <HintPath>..\..\COP\ClassLibraryControlReport\bin\Debug\ClassLibraryControlReport.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="FSharp.Markdown.Pdf">
       <HintPath>..\packages\FSharp.Markdown.Pdf.0.3.0\lib\net40\FSharp.Markdown.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Konponens">
+      <HintPath>..\..\..\..\Downloads\KOP\Konponens\bin\Debug\Konponens.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -65,7 +68,7 @@
       <HintPath>..\packages\Unity.5.11.1\lib\net46\Unity.Container.dll</HintPath>
     </Reference>
     <Reference Include="WindowsFormsControlLibraryComponentSansiel">
-      <HintPath>C:\Users\User\source\repos\COP_laba3\WindowsForms\bin\Debug\WindowsFormsControlLibraryComponentSansiel.dll</HintPath>
+      <HintPath>..\..\ComponentProgramming\ComponentSansiel\WindowsFormsControlLibraryComponentSansiel\bin\Debug\WindowsFormsControlLibraryComponentSansiel.dll</HintPath>
     </Reference>
     <Reference Include="Xceed.Document.NET">
       <HintPath>..\packages\DocX.1.4.1\lib\net40\Xceed.Document.NET.dll</HintPath>
@@ -75,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="categoryVM.cs" />
     <Compile Include="FormCategoryAdd.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -14,10 +14,26 @@ namespace StoreDAL.BMs
         IFigure Clone();
     }
 
+    [DataContract]
     public class CategoryBM : IFigure
     {
+        [DataMember]
         public int Id { get; set; }
+
+        [DataMember]
         public string Name { get; set; }
+
+        public CategoryBM() { }
+
+        public CategoryBM(string name)
+        {
+            this.Name = name;
+        }
+
+        public new string ToString()
+        {
+            return Name;
+        }
 
         public IFigure Clone()
         {
