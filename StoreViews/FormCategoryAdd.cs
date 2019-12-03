@@ -1,14 +1,7 @@
-﻿using StoreDAL.Is;
+﻿using StoreDAL.BMs;
+using StoreDAL.Is;
 using StoreDAL.VMs;
-using StoreDAL.BMs;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 
@@ -20,10 +13,12 @@ namespace StoreViews
 		public new IUnityContainer Container { get; set; }
 
 		public int Id { set { id = value; } }
+        public bool Copy { set { copy = value; } }
 
-		private readonly ICategoryService service;
+        private readonly ICategoryService service;
 
 		private int? id;
+        private bool? copy;
 
 		public FormCategoryAdd(ICategoryService service)
 		{
@@ -71,10 +66,25 @@ namespace StoreViews
 				}
 				else
 				{
-					service.Add(new CategoryBM
-					{
-						Name = textBoxName.Text
-					});
+                    if (copy.HasValue)
+                    {
+                        CategoryVM toCopy = service.Get(id.Value);
+
+                        CategoryBM origenal = new CategoryBM
+                        {
+                            Name = toCopy.Name
+                        };
+                        CategoryBM Copyed = origenal.DeepCopy() as CategoryBM;
+
+                        service.Add(Copyed);
+
+                    }
+                    else {
+                        service.Add(new CategoryBM
+                        {
+                            Name = textBoxName.Text
+                        });
+                    }
 				}
 				MessageBox.Show("Сохранение прошло успешно", "Сообщение",
 				MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -87,8 +97,7 @@ namespace StoreViews
 				MessageBoxIcon.Error);
 			}
 		}
-
-		private void bCancel_Click(object sender, EventArgs e)
+        private void bCancel_Click(object sender, EventArgs e)
 		{
 			DialogResult = DialogResult.Cancel;
 			Close();

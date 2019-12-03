@@ -64,6 +64,9 @@
     <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.11.1\lib\net46\Unity.Container.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsFormsControlLibraryComponentSansiel">
+      <HintPath>C:\Users\User\source\repos\COP_laba3\WindowsForms\bin\Debug\WindowsFormsControlLibraryComponentSansiel.dll</HintPath>
+    </Reference>
     <Reference Include="Xceed.Document.NET">
       <HintPath>..\packages\DocX.1.4.1\lib\net40\Xceed.Document.NET.dll</HintPath>
     </Reference>
@@ -113,6 +116,12 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormProductAdd.resx">
+      <DependentUpon>FormProductAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProductList.resx">
+      <DependentUpon>FormProductList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -123,6 +132,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\StoreDAL.BMs.ProductBM.datasource" />
     <None Include="Properties\DataSources\StoreDAL.VMs.CategoryVM.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

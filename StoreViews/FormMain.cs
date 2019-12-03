@@ -1,4 +1,5 @@
 ﻿using StoreDAL.Is;
+using StoreDAL.VMs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,10 @@ namespace StoreViews
 		private readonly ICategoryService cService;
 		private readonly IProductService pService;
 
-		public FormMain(ICategoryService cService, IProductService pService)
+        List<ProductVM> list;
+
+
+        public FormMain(ICategoryService cService, IProductService pService)
 		{
 			InitializeComponent();
 			this.cService = cService;
@@ -35,7 +39,14 @@ namespace StoreViews
 
 		private void FormMain_Load(object sender, EventArgs e)
 		{
-			
+            list = pService.GetList();
+            controlTreeView.SetList(list, (x) => cService.Get(x.CategoryId));
 		}
-	}
+
+        private void buttonProduct_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormProductList>();
+            form.ShowDialog();
+        }
+    }
 }
