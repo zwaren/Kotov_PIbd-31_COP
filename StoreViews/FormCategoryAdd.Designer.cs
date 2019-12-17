@@ -81,6 +81,7 @@
 			this.Controls.Add(this.bSave);
 			this.Name = "FormCategoryAdd";
 			this.Text = "FormCategoryAdd";
+			this.Load += new System.EventHandler(this.FormCategoryAdd_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

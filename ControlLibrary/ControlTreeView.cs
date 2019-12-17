@@ -22,6 +22,8 @@ namespace ControlLibrary
 
         public void SetList<T>(List<T> productList, Func<T, object> getCategory)
         {
+			treeView.Nodes.Clear();
+			categories = new Dictionary<string, TreeNode>();
 
 			foreach (T product in productList)
             {

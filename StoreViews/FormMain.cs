@@ -40,46 +40,68 @@ namespace StoreViews
 		{
 			var form = Container.Resolve<FormCategoryList>();
 			form.ShowDialog();
+			LoadData();
+		}
+
+		private void LoadData()
+		{
+			list = pService.GetList();
+			controlTreeView.SetList(list, (x) => cService.Get(x.CategoryId));
 		}
 
 		private void FormMain_Load(object sender, EventArgs e)
 		{
-            list = pService.GetList();
-            controlTreeView.SetList(list, (x) => cService.Get(x.CategoryId));
+			LoadData();
 
-
-            this.LoadPlugins("C:\\Users\\User\\source\\repos\\Kotov_PIbd-31_COP\\plugins\\");
-            this.AddPluginsItems();
-        }
+			this.LoadPlugins("C:\\Users\\User\\source\\repos\\Kotov_PIbd-31_COP\\plugins\\");
+			this.AddPluginsItems();
+		}
 
         private void buttonProduct_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormProductList>();
-            form.ShowDialog();
-        }
+			form.ShowDialog();
+			LoadData();
+		}
 
         private void BBackUp_Click(object sender, EventArgs e)
         {
-            createBackUpComponent1.BackUp(pService.GetList(), @"./products.json");
+			SaveFileDialog path = new SaveFileDialog();
+			if (path.ShowDialog() == DialogResult.OK)
+			{
+				createBackUpComponent1.BackUp(pService.GetList(), path.FileName);
+				LoadData();
+			}
         }
 
         private void BWordReport_Click(object sender, EventArgs e)
         {
-            wordReport1.SetData(pService.GetList().Select(x => 
-            {
-                var list1 = new List<String>();
-                list1.Add(x.Id.ToString());
-                list1.Add(x.Name);
-                list1.Add(cService.Get(x.CategoryId).Name);
-                return list1;
-            }).ToList());
-            string[] cols = { "Id", "Name", "Category" };
-            wordReport1.CreateTable(cols, null, @"./products.docx");
+			SaveFileDialog path = new SaveFileDialog();
+			if (path.ShowDialog() == DialogResult.OK)
+			{
+				wordReport1.SetData(pService.GetList().Select(x =>
+				{
+					var list1 = new List<String>();
+					list1.Add(x.Id.ToString());
+					list1.Add(x.Name);
+					list1.Add(cService.Get(x.CategoryId).Name);
+					return list1;
+				}).ToList());
+				string[] cols = { "Id", "Name", "Category" };
+				wordReport1.CreateTable(cols, null, path.FileName);
+				LoadData();
+			}
         }
 
         private void BWordDiagram_Click(object sender, EventArgs e)
         {
-            wordDiagramCreater1.CreateDiagram(list, "Name", "Count", @"./diagram.docx");
+			SaveFileDialog path = new SaveFileDialog();
+			if (path.ShowDialog() == DialogResult.OK)
+			{
+				wordDiagramCreater1.CreateDiagram(list, "Name", "Count", path.FileName);
+				LoadData();
+			}
+			
         }
 
         private void LoadPlugins(string path)

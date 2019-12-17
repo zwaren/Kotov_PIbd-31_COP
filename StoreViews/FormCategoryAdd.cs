@@ -26,7 +26,7 @@ namespace StoreViews
 			this.service = service;
 		}
 
-		private void FormDesigner_Load(object sender, EventArgs e)
+		private void FormCategoryAdd_Load(object sender, EventArgs e)
 		{
 			if (id.HasValue)
 			{
@@ -56,7 +56,20 @@ namespace StoreViews
 			}
 			try
 			{
-				if (id.HasValue)
+				if (copy.HasValue)
+				{
+					CategoryVM toCopy = service.Get(id.Value);
+
+					CategoryBM original = new CategoryBM
+					{
+						Name = toCopy.Name
+					};
+					CategoryBM Copyed = original.DeepCopy() as CategoryBM;
+
+					service.Add(Copyed);
+
+				}
+				else if (id.HasValue)
 				{
 					service.Update(new CategoryBM
 					{
@@ -66,25 +79,10 @@ namespace StoreViews
 				}
 				else
 				{
-                    if (copy.HasValue)
-                    {
-                        CategoryVM toCopy = service.Get(id.Value);
-
-                        CategoryBM origenal = new CategoryBM
-                        {
-                            Name = toCopy.Name
-                        };
-                        CategoryBM Copyed = origenal.DeepCopy() as CategoryBM;
-
-                        service.Add(Copyed);
-
-                    }
-                    else {
-                        service.Add(new CategoryBM
-                        {
-                            Name = textBoxName.Text
-                        });
-                    }
+					service.Add(new CategoryBM
+					{
+						Name = textBoxName.Text
+					});
 				}
 				MessageBox.Show("Сохранение прошло успешно", "Сообщение",
 				MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -19,5 +19,7 @@ namespace StoreDAL.Is
         void Update(CategoryBM model);
 
         void Delete(int id);
-    }
+
+        void Copy(int id);
+	}
 }

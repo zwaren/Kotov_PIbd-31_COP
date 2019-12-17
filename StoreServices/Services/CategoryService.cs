@@ -87,5 +87,15 @@ namespace StoreServices.Services
             element.Name = model.Name;
             context.SaveChanges();
         }
-    }
+
+		public void Copy(int id)
+		{
+			Category element = context.Categories.FirstOrDefault(rec => rec.Id == id);
+			if (element != null)
+			{
+				context.Categories.Add(element.Copy("copy"));
+				context.SaveChanges();
+			}
+		}
+	}
 }

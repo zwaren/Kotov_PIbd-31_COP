@@ -17,5 +17,14 @@ namespace StoreModels
 
         [ForeignKey("CategoryId")]
         public virtual IEnumerable<Product> Products { get; set; }
-    }
+
+		public Category Copy(string appendix)
+		{
+			var clone = new Category
+			{
+				Name = Name + "_" + appendix
+			};
+			return clone;
+		}
+	}
 }

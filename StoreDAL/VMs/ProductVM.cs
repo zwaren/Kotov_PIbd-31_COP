@@ -21,5 +21,10 @@ namespace StoreDAL.VMs
 
         [DataMember]
         public int Count { get; set; }
-    }
+
+		public override string ToString()
+		{
+			return Name;
+		}
+	}
 }

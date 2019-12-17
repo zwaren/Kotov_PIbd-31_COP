@@ -25,7 +25,7 @@ namespace StoreViews
         {
             InitializeComponent();
             List<CategoryVM> catVM = _service.GetList();
-            //selectComponentControl.LoadEnumeration(catVM, (x) => x.Name);
+            selectComponentControl.LoadEnumeration(catVM, (x) => x.Name);
             this.service = service;
         }
 
