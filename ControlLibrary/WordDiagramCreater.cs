@@ -29,7 +29,7 @@ namespace ControlLibrary
         /// <param name="name">Название свойства содержащего имя продукта.</param>
         /// <param name="count">Название свойства содержащего количество продукта.</param>
         /// <param name="path">Строка вида @"D:\path\to\diagram.docx".</param>
-        public static void CreateDiagram<T>(List<T> prods, string name, string count, string path)
+        public void CreateDiagram<T>(List<T> prods, string name, string count, string path)
         {
             DocX doc = DocX.Create(path);
 

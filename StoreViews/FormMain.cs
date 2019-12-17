@@ -1,11 +1,14 @@
-﻿using StoreDAL.Is;
+﻿using PluginService;
+using StoreDAL.Is;
 using StoreDAL.VMs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +25,8 @@ namespace StoreViews
 		private readonly IProductService pService;
 
         List<ProductVM> list;
+
+        List<IPlugin> _plugins;
 
 
         public FormMain(ICategoryService cService, IProductService pService)
@@ -41,7 +46,11 @@ namespace StoreViews
 		{
             list = pService.GetList();
             controlTreeView.SetList(list, (x) => cService.Get(x.CategoryId));
-		}
+
+
+            this.LoadPlugins("C:\\Users\\User\\source\\repos\\Kotov_PIbd-31_COP\\plugins\\");
+            this.AddPluginsItems();
+        }
 
         private void buttonProduct_Click(object sender, EventArgs e)
         {
@@ -51,7 +60,7 @@ namespace StoreViews
 
         private void BBackUp_Click(object sender, EventArgs e)
         {
-            createBackUpComponent1.BackUp(pService.GetList(), @"D:\test\products.json");
+            createBackUpComponent1.BackUp(pService.GetList(), @"./products.json");
         }
 
         private void BWordReport_Click(object sender, EventArgs e)
@@ -65,7 +74,73 @@ namespace StoreViews
                 return list1;
             }).ToList());
             string[] cols = { "Id", "Name", "Category" };
-            wordReport1.CreateTable(cols, null, @"D:\test\products.docx");
+            wordReport1.CreateTable(cols, null, @"./products.docx");
+        }
+
+        private void BWordDiagram_Click(object sender, EventArgs e)
+        {
+            wordDiagramCreater1.CreateDiagram(list, "Name", "Count", @"./diagram.docx");
+        }
+
+        private void LoadPlugins(string path)
+        {
+            string[] pluginFiles = Directory.GetFiles(path, "*.dll");
+            _plugins = new List<IPlugin>();
+
+            foreach (string pluginPath in pluginFiles)
+            {
+                Type objType = null;
+                try
+                {
+                    // пытаемся загрузить библиотеку
+                    Assembly assembly = Assembly.LoadFrom(pluginPath);
+                    if (assembly != null)
+                    {
+                        objType = assembly.GetType(Path.GetFileNameWithoutExtension(pluginPath) + ".PlugIn");
+                    }
+                }
+                catch
+                {
+                    continue;
+                }
+                try
+                {
+                    if (objType != null)
+                    {
+                        _plugins.Add((IPlugin)Activator.CreateInstance(objType));
+                        _plugins[_plugins.Count - 1].Host = this;
+                    }
+                }
+                catch
+                {
+                    continue;
+                }
+            }
+        }
+
+        private void AddPluginsItems()
+        {
+            lvPlugins.Items.Clear();
+            foreach (IPlugin plugin in this._plugins)
+            {
+                if (plugin == null)
+                {
+                    continue;
+                }
+                lvPlugins.Items.Add(plugin.DisplayPluginName);
+                lvPlugins.Items[lvPlugins.Items.Count - 1].SubItems.Add(plugin.Version.ToString());
+                lvPlugins.Items[lvPlugins.Items.Count - 1].SubItems.Add(plugin.Author);
+            }
+        }
+
+
+        private void lvPlugins_DoubleClick(object sender, EventArgs e)
+        {
+            if (lvPlugins.SelectedItems.Count > 0)
+            {
+                int selectedIndex = lvPlugins.SelectedItems[0].Index;
+                _plugins[selectedIndex].Show();
+            }
         }
     }
 }

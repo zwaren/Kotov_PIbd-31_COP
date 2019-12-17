@@ -40,7 +40,7 @@ namespace WindowsFormsApp
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			WordDiagramCreater.CreateDiagram(list, "Name", "Count", @"D:\diagram.docx");
+			//WordDiagramCreater.CreateDiagram(list, "Name", "Count", @"D:\diagram.docx");
 		}
 
 		private void button3_Click(object sender, EventArgs e)

@@ -25,7 +25,7 @@ namespace StoreViews
         {
             InitializeComponent();
             List<CategoryVM> catVM = _service.GetList();
-            selectComponentControl.LoadEnumeration(catVM, (x) => x.Name);
+            //selectComponentControl.LoadEnumeration(catVM, (x) => x.Name);
             this.service = service;
         }
 
@@ -66,7 +66,7 @@ namespace StoreViews
                         Id = id.Value,
                         Name = textBoxName.Text,
                         CategoryId = selectComponentControl.SelectedIndex,
-                        Count = Int32.Parse(textBoxCount.Text)
+                        Count = Int32.Parse(controlTextBox.Text)
                     });
                 }
                 else
@@ -75,7 +75,7 @@ namespace StoreViews
                     {
                         Name = textBoxName.Text,
                         CategoryId = selectComponentControl.SelectedIndex,
-                        Count = Int32.Parse(textBoxCount.Text)
+                        Count = Int32.Parse(controlTextBox.Text)
                     });
                 }
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",

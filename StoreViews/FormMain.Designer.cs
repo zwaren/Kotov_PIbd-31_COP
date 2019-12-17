@@ -30,13 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.bCategory = new System.Windows.Forms.Button();
-            this.controlTreeView = new ControlLibrary.ControlTreeView();
             this.buttonProduct = new System.Windows.Forms.Button();
             this.bBackUp = new System.Windows.Forms.Button();
             this.createBackUpComponent1 = new WindowsFormsControlLibraryComponentSansiel.CreateBackUpComponent(this.components);
             this.bWordDiagram = new System.Windows.Forms.Button();
             this.bWordReport = new System.Windows.Forms.Button();
             this.wordReport1 = new Konponens.WordReport(this.components);
+            this.controlTreeView = new ControlLibrary.ControlTreeView();
+            this.wordDiagramCreater1 = new ControlLibrary.WordDiagramCreater(this.components);
+            this.lvPlugins = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // bCategory
@@ -49,18 +51,10 @@
             this.bCategory.UseVisualStyleBackColor = true;
             this.bCategory.Click += new System.EventHandler(this.bCategory_Click);
             // 
-            // controlTreeView
-            // 
-            this.controlTreeView.Location = new System.Drawing.Point(275, 12);
-            this.controlTreeView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.controlTreeView.Name = "controlTreeView";
-            this.controlTreeView.Size = new System.Drawing.Size(221, 342);
-            this.controlTreeView.TabIndex = 1;
-            // 
             // buttonProduct
             // 
             this.buttonProduct.Location = new System.Drawing.Point(9, 45);
-            this.buttonProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonProduct.Margin = new System.Windows.Forms.Padding(2);
             this.buttonProduct.Name = "buttonProduct";
             this.buttonProduct.Size = new System.Drawing.Size(90, 21);
             this.buttonProduct.TabIndex = 2;
@@ -86,6 +80,7 @@
             this.bWordDiagram.TabIndex = 4;
             this.bWordDiagram.Text = "Word Diagram";
             this.bWordDiagram.UseVisualStyleBackColor = true;
+            this.bWordDiagram.Click += new System.EventHandler(this.BWordDiagram_Click);
             // 
             // bWordReport
             // 
@@ -97,11 +92,29 @@
             this.bWordReport.UseVisualStyleBackColor = true;
             this.bWordReport.Click += new System.EventHandler(this.BWordReport_Click);
             // 
+            // controlTreeView
+            // 
+            this.controlTreeView.Location = new System.Drawing.Point(275, 12);
+            this.controlTreeView.Margin = new System.Windows.Forms.Padding(4);
+            this.controlTreeView.Name = "controlTreeView";
+            this.controlTreeView.Size = new System.Drawing.Size(221, 342);
+            this.controlTreeView.TabIndex = 1;
+            // 
+            // lvPlugins
+            // 
+            this.lvPlugins.Location = new System.Drawing.Point(12, 71);
+            this.lvPlugins.Name = "lvPlugins";
+            this.lvPlugins.Size = new System.Drawing.Size(163, 102);
+            this.lvPlugins.TabIndex = 6;
+            this.lvPlugins.UseCompatibleStateImageBehavior = false;
+            this.lvPlugins.DoubleClick += new System.EventHandler(this.lvPlugins_DoubleClick);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 366);
+            this.Controls.Add(this.lvPlugins);
             this.Controls.Add(this.bWordReport);
             this.Controls.Add(this.bWordDiagram);
             this.Controls.Add(this.bBackUp);
@@ -125,5 +138,7 @@
         private System.Windows.Forms.Button bWordDiagram;
         private System.Windows.Forms.Button bWordReport;
         private Konponens.WordReport wordReport1;
+        private ControlLibrary.WordDiagramCreater wordDiagramCreater1;
+        private System.Windows.Forms.ListView lvPlugins;
     }
 }
