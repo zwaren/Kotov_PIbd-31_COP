@@ -44,5 +44,11 @@
     <Compile Include="IPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StoreDAL\StoreDAL.csproj">
+      <Project>{EAC04642-6905-4EAC-9D88-5BFAD8B8A87A}</Project>
+      <Name>StoreDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

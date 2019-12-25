@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StoreDAL.Is;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,11 @@ namespace PluginService
 {
     public interface IPlugin
     {
-        string PluginName { get; } // имя плагина
-        string DisplayPluginName { get; } // имя плагина, которое отображается
-        string PluginDescription { get; } // описание плагина
-        string Author { get; } // имя автора
-        int Version { get; } // версия
-        object Host { get; set; } // ссылка на владельца
+        string Name { get; }
+        string Description { get; }
+        string Author { get; }
+        string Version { get; }
 
-        void Show(); // отображает форму
-        string Activate<T>(List<T> input);
+        bool Exec(IProductService pService, ICategoryService cService);
     }
 }

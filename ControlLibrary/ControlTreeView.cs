@@ -14,6 +14,8 @@ namespace ControlLibrary
 	{
         Dictionary<string, TreeNode> categories;
 
+        public TreeView tree => treeView;
+
 		public ControlTreeView()
 		{
 			InitializeComponent();

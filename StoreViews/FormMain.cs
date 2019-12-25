@@ -53,7 +53,7 @@ namespace StoreViews
 		{
 			LoadData();
 
-			this.LoadPlugins("C:\\Users\\User\\source\\repos\\Kotov_PIbd-31_COP\\plugins\\");
+			this.LoadPlugins("C:\\Users\\user\\source\\repos\\Kotov_PIbd-31_COP\\plugins\\");
 			this.AddPluginsItems();
 		}
 
@@ -118,7 +118,7 @@ namespace StoreViews
                     Assembly assembly = Assembly.LoadFrom(pluginPath);
                     if (assembly != null)
                     {
-                        objType = assembly.GetType(Path.GetFileNameWithoutExtension(pluginPath) + ".PlugIn");
+                        objType = assembly.GetType(Path.GetFileNameWithoutExtension(pluginPath) + ".Plugin");
                     }
                 }
                 catch
@@ -130,7 +130,6 @@ namespace StoreViews
                     if (objType != null)
                     {
                         _plugins.Add((IPlugin)Activator.CreateInstance(objType));
-                        _plugins[_plugins.Count - 1].Host = this;
                     }
                 }
                 catch
@@ -149,7 +148,7 @@ namespace StoreViews
                 {
                     continue;
                 }
-                lvPlugins.Items.Add(plugin.DisplayPluginName);
+                lvPlugins.Items.Add(plugin.Name);
                 lvPlugins.Items[lvPlugins.Items.Count - 1].SubItems.Add(plugin.Version.ToString());
                 lvPlugins.Items[lvPlugins.Items.Count - 1].SubItems.Add(plugin.Author);
             }
@@ -161,7 +160,15 @@ namespace StoreViews
             if (lvPlugins.SelectedItems.Count > 0)
             {
                 int selectedIndex = lvPlugins.SelectedItems[0].Index;
-                _plugins[selectedIndex].Show();
+                if (_plugins[selectedIndex].Exec(pService, cService))
+                {
+                    MessageBox.Show("Успех", "Да", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("Не успех", "Нет", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                LoadData();
             }
         }
     }

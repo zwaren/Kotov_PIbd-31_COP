@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CategoryChange
+namespace ProductSupply
 {
     public class Plugin : IPlugin
     {
-        public string Name => "CategoryChange";
+        public string Name => "ProductSupply";
 
-        public string Description => "CategoryChange";
+        public string Description => "ProductSupply";
 
         public string Author => "zwaren";
 

@@ -82,9 +82,8 @@
     <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.11.1\lib\net46\Unity.Container.dll</HintPath>
     </Reference>
-    <Reference Include="WindowsFormsControlLibraryComponentSansiel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ComponentProgramming\WindowsFormsControlLibraryComponentSansiel\bin\Debug\WindowsFormsControlLibraryComponentSansiel.dll</HintPath>
+    <Reference Include="WindowsFormsControlLibraryComponentSansiel">
+      <HintPath>..\..\ComponentProgramming\ComponentSansiel\WindowsFormsControlLibraryComponentSansiel\bin\Debug\WindowsFormsControlLibraryComponentSansiel.dll</HintPath>
     </Reference>
     <Reference Include="Xceed.Document.NET">
       <HintPath>..\packages\DocX.1.4.1\lib\net40\Xceed.Document.NET.dll</HintPath>

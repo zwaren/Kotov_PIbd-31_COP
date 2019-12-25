@@ -91,6 +91,8 @@ namespace StoreServices.Services
                 throw new Exception("Элемент не найден");
             }
             element.Name = model.Name;
+            element.CategoryId = model.CategoryId;
+            element.Count = model.Count;
             context.SaveChanges();
         }
     }
